@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.css')}}">
+
+    <title>New Ninja</title>
+</head>
+
+<body>
+    <div class="new_Ninja_Container">
+        <h1>New Ninja</h1>
+        <!-- FORM CODE BELOW -->
+        <form class="ninja_Create" action="/create-ninja" method="POST">
+            <!-- SELECT OPTIONS CODE BELOW -->
+            <div class="select_Options">
+                <p>Dojo:</p>
+                <select style="width: 300px; height: 40px;" name="dojo_id" class="" aria-label="Default select example">
+                    {% for dojo in dojos %}
+                    <option value='{{dojo.id}}'>{{dojo.name}}</option>
+                    {% endfor %}
+                </select>
+
+            </div>
+            <br>
+            <!-- NINJA LABELS-INPUT FIELD CODE BELOW -->
+            <div class="">
+                <label for="first_name" class="col-form-label">First Name:</label>
+                <div class="">
+                    <input style="width: 300px; height: 40px;" name="first_name" type="text" class="" id="" placeholder="">
+                </div>
+            </div>
+            <br>
+            <div class="">
+                <label for="last_name" class="col-form-label">Last Name:</label>
+                <div class="">
+                    <input style="width: 300px; height: 40px;" name="last_name" type="text" class="" id="" placeholder="">
+                </div>
+            </div>
+            <br>
+            <div class="">
+                <label for="age" class=" col-form-label">Age:</label>
+                <div class="">
+                    <input style="width: 300px; height: 40px;" name="age" type="text" class="" id="" placeholder="">
+                </div>
+            </div>
+            <!-- HIDDEN INPUT TO PASS DOJO ID  -->
+            <input type="hidden" name="dojo_id" value="">
+            <!-- SUBMIT BUTTON CODE BELOW -->
+            <br>
+            <button type="submit" class="btn btn-primary">Create</button>
+
+
+
+
+        </form>
+
+
+    </div>
+</body>
+
+</html>
